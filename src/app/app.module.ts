@@ -9,6 +9,7 @@ import { ProductTableComponent } from './Components/product-table/product-table.
 import { NewProductComponent } from './Pages/new-product/new-product.component';
 import { SideBarComponent } from './Components/side-bar/side-bar.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
+import { FormNewProductComponent } from './Components/form-new-product/form-new-product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
     ProductTableComponent,
     NewProductComponent,
     SideBarComponent,
-    NavBarComponent
+    NavBarComponent,
+    FormNewProductComponent,
   ],
   imports: [
     BrowserModule,
