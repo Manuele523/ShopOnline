@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { DetailsComponent } from './Pages/details/details.component';
 import { ProductTableComponent } from './Components/product-table/product-table.component';
+import { NewProductComponent } from './Pages/new-product/new-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DetailsComponent,
-    ProductTableComponent
+    ProductTableComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
