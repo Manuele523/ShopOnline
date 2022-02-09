@@ -16,23 +16,23 @@ public class ProductManagerImpl implements ProductManager {
     private ProductService productService;
 
     @Override
-    public Stream<ProductDTO> findAllProduct() {
-        return productService.findAllProduct().stream().map(ProductMapper::mapToProductDTO);
+    public Stream<ProductDTO> findAll() {
+        return productService.findAll().stream().map(ProductMapper::mapToDTO);
     }
 
     @Override
-    public Stream<ProductDTO> findAllProductByCategory(String category) {
-        return productService.findAllProductByCategory(category).stream().map(ProductMapper::mapToProductDTO);
+    public Stream<ProductDTO> findAllByCategory(String category) {
+        return productService.findAllByCategory(category).stream().map(ProductMapper::mapToDTO);
     }
 
     @Override
-    public void insertProduct(ProductDTO product) {
-        productService.insertProduct(ProductMapper.mapToProductEntity(product));
+    public void insert(ProductDTO product) {
+        productService.insert(ProductMapper.mapToEntity(product));
     }
 
     @Override
-    public void updateProduct(ProductDTO product) {
-        productService.updateProduct(ProductMapper.mapToProductEntity(product));
+    public void update(ProductDTO product) {
+        productService.update(ProductMapper.mapToEntity(product));
     }
 
 }

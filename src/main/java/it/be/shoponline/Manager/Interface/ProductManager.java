@@ -2,16 +2,15 @@ package it.be.shoponline.Manager.Interface;
 
 import it.be.shoponline.DTO.ProductDTO;
 
-import java.util.List;
 import java.util.stream.Stream;
 
 public interface ProductManager {
 
-    Stream<ProductDTO> findAllProduct();
+    Stream<ProductDTO> findAll();
 
-    Stream<ProductDTO> findAllProductByCategory(String category);
+    Stream<ProductDTO> findAllByCategory(String category);
 
-    void insertProduct(ProductDTO product);
+    void insert(ProductDTO product);
 
-    void updateProduct(ProductDTO product);
+    void update(ProductDTO product);
 }

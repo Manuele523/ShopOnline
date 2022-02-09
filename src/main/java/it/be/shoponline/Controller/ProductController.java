@@ -8,30 +8,31 @@ import org.springframework.web.bind.annotation.*;
 import java.util.stream.Stream;
 
 @RestController
+@RequestMapping("/product")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 
     @Autowired
     private ProductManager productManager;
 
-    @GetMapping("/findAllProduct")
-    public Stream<ProductDTO> findAllProduct() {
-        return productManager.findAllProduct();
+    @GetMapping("/findAll")
+    public Stream<ProductDTO> findAll() {
+        return productManager.findAll();
     }
 
-    @GetMapping("/findAllProductByCategory")
-    public Stream<ProductDTO> findAllProductByCategory(@RequestParam("category") String category) {
-        return productManager.findAllProductByCategory(category);
+    @GetMapping("/findAllByCategory")
+    public Stream<ProductDTO> findAllByCategory(@RequestParam("category") String category) {
+        return productManager.findAllByCategory(category);
     }
 
-    @PostMapping("/insertProduct")
-    public void insertProduct(@RequestBody ProductDTO product) {
-        productManager.insertProduct(product);
+    @PostMapping("/insert")
+    public void insert(@RequestBody ProductDTO product) {
+        productManager.insert(product);
     }
 
-    @PostMapping("/updateProduct")
-    public void updateProduct(@RequestBody ProductDTO product) {
-        productManager.updateProduct(product);
+    @PostMapping("/update")
+    public void update(@RequestBody ProductDTO product) {
+        productManager.update(product);
     }
 
 }

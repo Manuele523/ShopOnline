@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<ProductEntity> findAllProduct();
+    List<ProductEntity> findAll();
 
-    List<ProductEntity> findAllProductByCategory(String category);
+    List<ProductEntity> findAllByCategory(String category);
 
-    void insertProduct(ProductEntity mapToProductEntity);
+    void insert(ProductEntity entity);
 
-    void updateProduct(ProductEntity mapToProductEntity);
+    void update(ProductEntity entity);
 }

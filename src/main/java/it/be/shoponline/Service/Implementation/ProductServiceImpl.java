@@ -13,9 +13,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Locale;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -43,12 +41,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductEntity> findAllProduct() {
+    public List<ProductEntity> findAll() {
         return productRepository.findAll();
     }
 
     @Override
-    public List<ProductEntity> findAllProductByCategory(String category) {
+    public List<ProductEntity> findAllByCategory(String category) {
         setupCriteriaBuilderSelect();
         criteriaQuery.where(criteriaBuilder.like(root.get("category").get("name"), "%" + TypeCategory.getEnumByName(category) + "%"));
 
@@ -62,12 +60,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void insertProduct(ProductEntity entity) {
+    public void insert(ProductEntity entity) {
         productRepository.save(entity);
     }
 
     @Override
-    public void updateProduct(ProductEntity entity) {
+    public void update(ProductEntity entity) {
         productRepository.save(entity);
     }
 
