@@ -5,17 +5,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Pages/home/home.component';
-import { DetailsComponent } from './Pages/details/details.component';
 import { ProductTableComponent } from './Components/product-table/product-table.component';
 import { NewProductComponent } from './Pages/new-product/new-product.component';
+import { SideBarComponent } from './Components/side-bar/side-bar.component';
+import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DetailsComponent,
     ProductTableComponent,
-    NewProductComponent
+    NewProductComponent,
+    SideBarComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
