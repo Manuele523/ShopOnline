@@ -1,1 +1,30 @@
-<p>form-new-product works!</p>
+
+<h2>Insert new Product</h2>
+<hr>
+
+<form [formGroup]="productForm" (ngSubmit)="insert()">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputName">Name</label>
+      <input type="text" class="form-control" id="inputName" formControlName="name">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPrice">Price (€/kg)</label>
+      <input type="number" step="0.01" class="form-control" id="inputPrice" formControlName="price">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputQuantity">Quantity stored</label>
+      <input type="number" class="form-control" id="inputQuantity" formControlName="quantity">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputCategory">Category</label>
+      <select class="form-control" id="inputCategory" formControlName="categoryId">
+        <option *ngFor="let categ of categories" value="{{ categ.id }}">{{ categ.name }}</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
+

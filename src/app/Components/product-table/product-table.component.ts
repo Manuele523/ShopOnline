@@ -14,7 +14,7 @@ export class ProductTableComponent implements OnInit {
   constructor(private productModel: ProductModel) {}
 
   ngOnInit(): void {
-    this.productModel.getProduts().subscribe(data => {
+    this.productModel.findAll().subscribe(data => {
       this.products = data;
     });
   }

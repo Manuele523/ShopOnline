@@ -8,13 +8,17 @@ import { Product } from '../Model/Product';
 })
 export class ProductModel {
 
-    baseUrl = 'http://localhost:8080/';
+    baseUrl = 'http://localhost:8080/product/';
 
     constructor(private http: HttpClient) {
     }
 
-    getProduts(): Observable<Array<Product>> {
-       return this.http.get<Array<Product>>(this.baseUrl + 'findAllProduct');
+    findAll(): Observable<Array<Product>> {
+       return this.http.get<Array<Product>>(this.baseUrl + 'findAll');
+    }
+
+    insert(product: Product): Observable<any> {
+      return this.http.post<any>(this.baseUrl + 'insert', product);
     }
 
 }
