@@ -21,4 +21,8 @@ export class ProductModel {
       return this.http.post<any>(this.baseUrl + 'insert', product);
     }
 
+    update(product: Product): Observable<any> {
+      return this.http.post<any>(this.baseUrl + 'update', product);
+    }
+
 }
