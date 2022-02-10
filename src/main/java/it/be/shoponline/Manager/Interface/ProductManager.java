@@ -1,6 +1,7 @@
 package it.be.shoponline.Manager.Interface;
 
 import it.be.shoponline.DTO.ProductDTO;
+import it.be.shoponline.Enum.StatusCode;
 
 import java.util.stream.Stream;
 
@@ -10,7 +11,8 @@ public interface ProductManager {
 
     Stream<ProductDTO> findAllByCategory(String category);
 
-    void insert(ProductDTO product);
+    StatusCode insert(ProductDTO product) throws Exception;
 
-    void update(ProductDTO product);
+    StatusCode update(ProductDTO product) throws Exception;
+
 }

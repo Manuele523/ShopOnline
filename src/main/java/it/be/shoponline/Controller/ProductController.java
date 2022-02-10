@@ -1,5 +1,6 @@
 package it.be.shoponline.Controller;
 
+import it.be.shoponline.Controller.OutcomeType.Response;
 import it.be.shoponline.DTO.ProductDTO;
 import it.be.shoponline.Manager.Interface.ProductManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +21,19 @@ public class ProductController {
         return productManager.findAll();
     }
 
-    @GetMapping("/findAllByCategory")
+    @PostMapping("/findAllByCategory")
     public Stream<ProductDTO> findAllByCategory(@RequestParam("category") String category) {
         return productManager.findAllByCategory(category);
     }
 
     @PostMapping("/insert")
-    public void insert(@RequestBody ProductDTO product) {
-        productManager.insert(product);
+    public Response insert(@RequestBody ProductDTO product) throws Exception {
+        return Response.readOutcome(productManager.insert(product));
     }
 
     @PostMapping("/update")
-    public void update(@RequestBody ProductDTO product) {
-        productManager.update(product);
+    public Response update(@RequestBody ProductDTO product) throws Exception {
+        return Response.readOutcome(productManager.update(product));
     }
 
 }

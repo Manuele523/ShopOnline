@@ -10,7 +10,6 @@ public interface ProductService {
 
     List<ProductEntity> findAllByCategory(String category);
 
-    void insert(ProductEntity entity);
+    ProductEntity insert(ProductEntity entity) throws Exception;
 
-    void update(ProductEntity entity);
 }

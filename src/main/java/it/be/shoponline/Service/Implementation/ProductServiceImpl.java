@@ -62,13 +62,13 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    public void insert(ProductEntity entity) {
-        productRepository.save(entity);
-    }
-
-    @Override
-    public void update(ProductEntity entity) {
-        productRepository.save(entity);
+    public ProductEntity insert(ProductEntity entity) throws Exception {
+        try {
+            return productRepository.save(entity);
+        } catch (Exception e) {
+            System.out.println("Error during insert of new Product!");
+        }
+        return null;
     }
 
 }
