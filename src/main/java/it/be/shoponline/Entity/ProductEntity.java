@@ -4,15 +4,17 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @ToString
 @Entity
 @Table(name = "T_PRODUCT_STORED")
-public class ProductEntity {
+public class ProductEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SG_ID")
+    @SequenceGenerator(name="SG_ID", sequenceName="SQ_ID_PRODUCT_STORED", allocationSize=1)
     @Column(name = "ID", updatable = false, nullable = false)
     private Long id;
 
@@ -25,7 +27,7 @@ public class ProductEntity {
     @Column(name = "QUANTITY", nullable = false)
     private String quantity;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "FK_CATEGORY", referencedColumnName = "ID")
     private CategoryEntity category;
 

@@ -1,13 +1,18 @@
 package it.be.shoponline.Service.Implementation;
 
 import it.be.shoponline.Entity.CategoryEntity;
+import it.be.shoponline.Entity.ProductEntity;
+import it.be.shoponline.Enum.TypeCategory;
 import it.be.shoponline.Repository.CategoryRepository;
+import it.be.shoponline.Repository.ProductRepository;
 import it.be.shoponline.Service.Interface.CategoryService;
+import it.be.shoponline.Service.Interface.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
