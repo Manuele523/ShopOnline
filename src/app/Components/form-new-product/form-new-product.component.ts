@@ -16,6 +16,7 @@ export class FormNewProductComponent implements OnInit {
 
   categories: Array<Category> = [];
   product = {} as Product;
+
   productForm = new FormGroup({
     name: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
@@ -23,9 +24,9 @@ export class FormNewProductComponent implements OnInit {
     categoryId: new FormControl('', Validators.required),
   });
 
-  constructor(private categoryModel: CategoryModel, private productModel: ProductModel) {}
+  constructor(private categoryModel: CategoryModel, private productModel: ProductModel) { }
 
-  insert(){
+  insert(): void {
     var formVal = this.productForm.value;
     var categ = this.categories.find((element: any) => element.id == formVal.categoryId);
 
@@ -42,7 +43,7 @@ export class FormNewProductComponent implements OnInit {
     }
 
     this.productModel.insert(this.product).subscribe(data => {
-      console.log(data);
+      alert('Code: ' + data.code + '\n' + 'Description: ' + data.description);
     });
   }
 

@@ -20,7 +20,7 @@ import { FormNewProductComponent } from './Components/form-new-product/form-new-
     NewProductComponent,
     SideBarComponent,
     NavBarComponent,
-    FormNewProductComponent,
+    FormNewProductComponent
   ],
   imports: [
     BrowserModule,
