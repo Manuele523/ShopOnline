@@ -9,10 +9,9 @@ public interface ProductManager {
 
     Stream<ProductDTO> findAll();
 
-    Stream<ProductDTO> findAllByCategory(String category);
-
     StatusCode insert(ProductDTO product) throws Exception;
 
     StatusCode update(ProductDTO product) throws Exception;
 
+    StatusCode delete(Long idProduct);
 }

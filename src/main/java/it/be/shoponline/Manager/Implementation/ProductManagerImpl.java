@@ -22,11 +22,6 @@ public class ProductManagerImpl implements ProductManager {
     }
 
     @Override
-    public Stream<ProductDTO> findAllByCategory(String category) {
-        return productService.findAllByCategory(category).stream().map(ProductMapper::mapToDTO);
-    }
-
-    @Override
     public StatusCode insert(ProductDTO product) throws Exception {
         if (productService.insert(ProductMapper.mapToEntity(product)) != null) {
             return StatusCode.OK_INSERT;
@@ -38,6 +33,15 @@ public class ProductManagerImpl implements ProductManager {
     @Override
     public StatusCode update(ProductDTO product) throws Exception {
         if (productService.insert(ProductMapper.mapToEntity(product)) != null) {
+            return StatusCode.OK_UPDATE;
+        }  else {
+            return StatusCode.KO_UPDATE;
+        }
+    }
+
+    @Override
+    public StatusCode delete(Long idProduct) {
+        if (productService.delete(idProduct)) {
             return StatusCode.OK_UPDATE;
         }  else {
             return StatusCode.KO_UPDATE;

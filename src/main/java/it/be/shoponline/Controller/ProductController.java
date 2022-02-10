@@ -21,11 +21,6 @@ public class ProductController {
         return productManager.findAll();
     }
 
-    @PostMapping("/findAllByCategory")
-    public Stream<ProductDTO> findAllByCategory(@RequestParam("category") String category) {
-        return productManager.findAllByCategory(category);
-    }
-
     @PostMapping("/insert")
     public Response insert(@RequestBody ProductDTO product) throws Exception {
         return Response.readOutcome(productManager.insert(product));
@@ -34,6 +29,11 @@ public class ProductController {
     @PostMapping("/update")
     public Response update(@RequestBody ProductDTO product) throws Exception {
         return Response.readOutcome(productManager.update(product));
+    }
+
+    @PostMapping("/delete")
+    public Response delete(@RequestParam("id") Long idProduct) throws Exception {
+        return Response.readOutcome(productManager.delete(idProduct));
     }
 
 }

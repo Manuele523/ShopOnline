@@ -12,4 +12,5 @@ public interface ProductService {
 
     ProductEntity insert(ProductEntity entity) throws Exception;
 
+    Boolean delete(Long idProduct);
 }
