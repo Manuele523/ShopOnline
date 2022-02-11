@@ -13,7 +13,20 @@ export class ProductTableComponent implements OnInit {
 
   constructor(private productModel: ProductModel) {}
 
+  delete(prd: any): void {
+    this.productModel.delete(prd.id).subscribe(data => {
+      alert('Code: ' + data.code + '\n' + 'Description: ' + data.description);
+      if (data.code.includes('ok_')) {
+        this.populateTable();
+      }
+    });
+  }
+
   ngOnInit(): void {
+    this.populateTable();
+  }
+
+  populateTable(): void {
     this.productModel.findAll().subscribe(data => {
       this.products = data;
     });

@@ -1,0 +1,10 @@
+
+.btn-trash {
+  color: black;
+}
+
+.btn-trash:hover {
+  color: gray;
+  cursor: pointer;
+}
+

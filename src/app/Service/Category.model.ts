@@ -17,4 +17,16 @@ export class CategoryModel {
        return this.http.get<Array<Category>>(this.baseUrl + 'findAll');
     }
 
+    insert(category: Category): Observable<any> {
+      return this.http.post<any>(this.baseUrl + 'insert', category);
+    }
+
+    update(category: Category): Observable<any> {
+      return this.http.put<any>(this.baseUrl + 'update', category);
+    }
+
+    delete(idCategory: any): Observable<any> {
+      return this.http.delete<any>(this.baseUrl + 'delete', idCategory);
+    }
+
 }

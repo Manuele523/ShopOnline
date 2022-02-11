@@ -22,7 +22,11 @@ export class ProductModel {
     }
 
     update(product: Product): Observable<any> {
-      return this.http.post<any>(this.baseUrl + 'update', product);
+      return this.http.put<any>(this.baseUrl + 'update', product);
+    }
+
+    delete(product: any): Observable<any> {
+      return this.http.delete<any>(this.baseUrl + 'delete?idProduct=' + product);
     }
 
 }
