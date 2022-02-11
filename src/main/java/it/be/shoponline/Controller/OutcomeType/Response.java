@@ -21,4 +21,5 @@ public class Response {
     public static Response readOutcome(StatusCode status) {
         return new Response(status);
     }
+
 }

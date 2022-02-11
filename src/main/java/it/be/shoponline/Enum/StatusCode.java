@@ -7,7 +7,9 @@ public enum StatusCode {
     OK_INSERT("ok_insert", "Insert successful!"),
     KO_INSERT("ko_insert", "Insert Error!"),
     OK_UPDATE("ok_update", "Update successful!"),
-    KO_UPDATE("ko_update", "Update Error!");
+    KO_UPDATE("ko_update", "Update Error!"),
+    OK_DELETE("ok_delete", "Delete successful!"),
+    KO_DELETE("ko_delete", "Delete Error!");
 
     private String code;
     private String description;

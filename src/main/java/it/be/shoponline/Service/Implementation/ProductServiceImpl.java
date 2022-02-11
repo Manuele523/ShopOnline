@@ -5,6 +5,7 @@ import it.be.shoponline.Enum.TypeCategory;
 import it.be.shoponline.Repository.ProductRepository;
 import it.be.shoponline.Service.Interface.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -43,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductEntity> findAll() {
-        return productRepository.findAll();
+        return productRepository.findAll(Sort.by("id").ascending());
     }
 
     @Override

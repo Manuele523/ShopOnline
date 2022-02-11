@@ -8,8 +8,8 @@ public interface CategoryService {
 
     List<CategoryEntity> findAll();
 
-    void insert(CategoryEntity entity);
+    CategoryEntity insert(CategoryEntity entity);
 
-    void update(CategoryEntity entity);
+    Boolean delete(Long idCategory);
 
 }

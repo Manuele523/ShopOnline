@@ -26,13 +26,13 @@ public class ProductController {
         return Response.readOutcome(productManager.insert(product));
     }
 
-    @PostMapping("/update")
+    @PutMapping("/update")
     public Response update(@RequestBody ProductDTO product) throws Exception {
         return Response.readOutcome(productManager.update(product));
     }
 
-    @PostMapping("/delete")
-    public Response delete(@RequestParam("id") Long idProduct) throws Exception {
+    @DeleteMapping("/delete")
+    public Response delete(@RequestParam("idProduct") Long idProduct) throws Exception {
         return Response.readOutcome(productManager.delete(idProduct));
     }
 

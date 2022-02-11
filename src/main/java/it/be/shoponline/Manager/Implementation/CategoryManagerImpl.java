@@ -1,6 +1,7 @@
 package it.be.shoponline.Manager.Implementation;
 
 import it.be.shoponline.DTO.CategoryDTO;
+import it.be.shoponline.Enum.StatusCode;
 import it.be.shoponline.Manager.Interface.CategoryManager;
 import it.be.shoponline.Mapper.CategoryMapper;
 import it.be.shoponline.Service.Interface.CategoryService;
@@ -21,13 +22,30 @@ public class CategoryManagerImpl implements CategoryManager {
     }
 
     @Override
-    public void insert(CategoryDTO category) {
-        categoryService.insert(CategoryMapper.mapToEntity(category));
+    public StatusCode insert(CategoryDTO category) {
+        if (categoryService.insert(CategoryMapper.mapToEntity(category)) != null) {
+            return StatusCode.OK_INSERT;
+        } else {
+            return StatusCode.KO_INSERT;
+        }
     }
 
     @Override
-    public void update(CategoryDTO category) {
-        categoryService.update(CategoryMapper.mapToEntity(category));
+    public StatusCode update(CategoryDTO category) {
+        if (categoryService.insert(CategoryMapper.mapToEntity(category)) != null) {
+            return StatusCode.OK_UPDATE;
+        } else {
+            return StatusCode.KO_UPDATE;
+        }
+    }
+
+    @Override
+    public StatusCode delete(Long idCategory) {
+        if (categoryService.delete(idCategory)) {
+            return StatusCode.OK_DELETE;
+        } else {
+            return StatusCode.KO_DELETE;
+        }
     }
 
 }

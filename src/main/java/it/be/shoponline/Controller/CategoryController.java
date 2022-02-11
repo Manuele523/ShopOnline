@@ -1,5 +1,6 @@
 package it.be.shoponline.Controller;
 
+import it.be.shoponline.Controller.OutcomeType.Response;
 import it.be.shoponline.DTO.CategoryDTO;
 import it.be.shoponline.Manager.Interface.CategoryManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,18 @@ public class CategoryController {
     }
 
     @PostMapping("/insert")
-    public void insert(@RequestBody CategoryDTO category) {
-        categoryManager.insert(category);
+    public Response insert(@RequestBody CategoryDTO category) {
+        return Response.readOutcome(categoryManager.insert(category));
     }
 
-    @PostMapping("/update")
-    public void update(@RequestBody CategoryDTO category) {
-        categoryManager.update(category);
+    @PutMapping("/update")
+    public Response update(@RequestBody CategoryDTO category) {
+        return Response.readOutcome(categoryManager.update(category));
+    }
+
+    @DeleteMapping("/delete")
+    public Response delete(@RequestParam("id") Long idCategory) throws Exception {
+        return Response.readOutcome(categoryManager.delete(idCategory));
     }
 
 }

@@ -16,6 +16,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -49,13 +50,25 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public void insert(CategoryEntity entity) {
-        categoryRepository.save(entity);
+    @Transactional
+    public CategoryEntity insert(CategoryEntity entity) {
+        try {
+            return categoryRepository.save(entity);
+        } catch (Exception e) {
+            System.out.println("Error during insert of new Category!");
+        }
+        return null;
     }
 
     @Override
-    public void update(CategoryEntity entity) {
-        categoryRepository.save(entity);
+    public Boolean delete(Long idCategory) {
+        try {
+            categoryRepository.deleteById(idCategory);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Error during delete of Category!");
+        }
+        return null;
     }
 
 }
