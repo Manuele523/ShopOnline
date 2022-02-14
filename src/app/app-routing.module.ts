@@ -8,7 +8,7 @@ import { FormUpdateProductComponent } from './Components/form-update-product/for
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'product', component: PageProductComponent,  children: [
-    { path: 'insert', component: FormNewProductComponent, outlet: 'product'},
+    { path: 'insert', component: FormNewProductComponent, outlet: 'product' },
     { path: 'update', component: FormUpdateProductComponent, outlet: 'product' }
   ]}
 ];

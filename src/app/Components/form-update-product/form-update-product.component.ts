@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Params, ActivatedRoute } from '@angular/router';
 
 import { Category } from 'src/app/Model/Category';
 import { Product } from 'src/app/Model/Product';
@@ -26,7 +27,7 @@ export class FormUpdateProductComponent implements OnInit {
       categoryId: new FormControl({ value: '', disabled: this.isDisabled }, Validators.required)
     });
 
-    constructor(private categoryModel: CategoryModel, private productModel: ProductModel) { }
+    constructor(private categoryModel: CategoryModel, private productModel: ProductModel, private route:  ActivatedRoute) { }
 
     update(): void {
       var formVal = this.productForm.value;
@@ -55,6 +56,20 @@ export class FormUpdateProductComponent implements OnInit {
       });
       this.productModel.findAll().subscribe(data => {
         this.products = data;
+
+        this.route.queryParams.subscribe((params: any) => {
+          if ( params != null && params != undefined)
+            var prod = this.products.find(x => x.id == params.id);
+            if (prod != null && prod != undefined) {
+              this.productForm.setValue({
+                name: prod.name,
+                price: prod.price,
+                quantity: prod.quantity,
+                categoryId: prod.category.id
+              });
+            this.productForm.enable();
+          }
+        });
       });
     }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 import { Category } from 'src/app/Model/Category';
 import { Product } from 'src/app/Model/Product';
@@ -24,7 +25,7 @@ export class FormNewProductComponent implements OnInit {
     categoryId: new FormControl('', Validators.required),
   });
 
-  constructor(private categoryModel: CategoryModel, private productModel: ProductModel) { }
+  constructor(private categoryModel: CategoryModel, private productModel: ProductModel, private route: ActivatedRoute) { }
 
   insert(): void {
     var formVal = this.productForm.value;

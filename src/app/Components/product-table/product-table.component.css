@@ -1,9 +1,9 @@
 
-.btn-trash {
+.btn-trash, .btn-edit {
   color: black;
 }
 
-.btn-trash:hover {
+.btn-trash:hover, .btn-edit:hover {
   color: gray;
   cursor: pointer;
 }

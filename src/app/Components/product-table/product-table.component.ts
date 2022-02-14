@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Product } from 'src/app/Model/Product';
 import { ProductModel } from 'src/app/Service/Product.model';
 
@@ -11,7 +13,7 @@ export class ProductTableComponent implements OnInit {
 
   products: Array<Product> = [];
 
-  constructor(private productModel: ProductModel) {}
+  constructor(private productModel: ProductModel, private router: Router, private route: ActivatedRoute) {}
 
   delete(prd: any): void {
     this.productModel.delete(prd.id).subscribe(data => {
